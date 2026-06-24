@@ -20,7 +20,7 @@ body {
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
 }
 
-/* Анимированный слой с Шиноа поверх фоновой картинки */
+/* Анимированный слой с отрядом Шиноа поверх фоновой картинки */
 .shinoa-bg {
   position: fixed;
   inset: 0;
