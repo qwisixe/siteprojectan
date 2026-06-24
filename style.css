@@ -23,8 +23,7 @@ body {
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
 }
 
-/* Анимированный слой с отрядом Шиноа поверх фоновой картинки
-   ВАЖНО: у него НЕТ своего background, только картинка <img> */
+/* Анимированный слой с отрядом Шиноа поверх фоновой картинки */
 .shinoa-bg {
   position: fixed;
   inset: 0;
@@ -61,7 +60,7 @@ body {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(14px);
-  background-color: rgba(9, 4, 20, 0.95); /* без градиента, чтобы не путать с фоном */
+  background-color: rgba(9, 4, 20, 0.95);
   border-bottom: 1px solid rgba(255, 180, 255, 0.2);
   padding: 12px 38px;
   display: flex;
