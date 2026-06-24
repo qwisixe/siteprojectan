@@ -10,17 +10,21 @@ html, body {
   padding: 0;
 }
 
+/* ЕДИНСТВЕННЫЙ фон сайта — твой pinimg */
 body {
   position: relative;
   min-height: 100vh;
-  /* единственный фон сайта — твой pinimg */
-  background: url("https://i.pinimg.com/1200x/e8/5a/cf/e85acf0cd13bfb5e9d2b0bef546fa967.jpg") no-repeat center center fixed;
+  background-image: url("https://i.pinimg.com/1200x/e8/5a/cf/e85acf0cd13bfb5e9d2b0bef546fa967.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   background-size: cover;
   color: #f5f5ff;
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
 }
 
-/* Анимированный слой с отрядом Шиноа поверх фоновой картинки */
+/* Анимированный слой с отрядом Шиноа поверх фоновой картинки
+   ВАЖНО: у него НЕТ своего background, только картинка <img> */
 .shinoa-bg {
   position: fixed;
   inset: 0;
@@ -57,7 +61,7 @@ body {
   top: 0;
   z-index: 10;
   backdrop-filter: blur(14px);
-  background: linear-gradient(to right, rgba(9, 4, 20, 0.95), rgba(35, 15, 55, 0.95));
+  background-color: rgba(9, 4, 20, 0.95); /* без градиента, чтобы не путать с фоном */
   border-bottom: 1px solid rgba(255, 180, 255, 0.2);
   padding: 12px 38px;
   display: flex;
@@ -80,7 +84,7 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 0 0 18px rgba(255, 120, 255, 0.7);
-  background: radial-gradient(circle, rgba(90, 24, 140, 0.6), rgba(30, 10, 60, 0.9));
+  background-color: rgba(30, 10, 60, 0.9);
 }
 
 .logo-circle span {
@@ -117,7 +121,7 @@ body {
 }
 
 .main-nav a:hover {
-  background: rgba(90, 40, 140, 0.8);
+  background-color: rgba(90, 40, 140, 0.8);
   border-color: rgba(255, 180, 255, 0.4);
   transform: translateY(-1px);
 }
@@ -131,7 +135,7 @@ body {
 
 /* Объёмные секции */
 .section-card {
-  background: rgba(12, 8, 24, 0.94);
+  background-color: rgba(12, 8, 24, 0.94);
   border-radius: 18px;
   padding: 22px 24px;
   margin: 22px 0;
@@ -182,7 +186,7 @@ body {
   border-radius: 999px;
   border: 1px solid rgba(255, 180, 255, 0.5);
   font-size: 12px;
-  background: rgba(75, 35, 135, 0.8);
+  background-color: rgba(75, 35, 135, 0.8);
 }
 
 .hero-portrait img {
@@ -280,7 +284,7 @@ blockquote {
   margin: 0;
   padding: 12px 16px;
   border-left: 3px solid rgba(255, 180, 255, 0.9);
-  background: rgba(28, 16, 48, 0.95);
+  background-color: rgba(28, 16, 48, 0.95);
   border-radius: 10px;
   font-style: italic;
   color: #f7e9ff;
@@ -295,7 +299,7 @@ blockquote {
 }
 
 .media-card {
-  background: rgba(30, 16, 60, 0.95);
+  background-color: rgba(30, 16, 60, 0.95);
   border-radius: 14px;
   padding: 12px 14px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
@@ -313,7 +317,7 @@ blockquote {
   padding: 18px 12px 26px;
   font-size: 13px;
   color: #dcd0ff;
-  background: rgba(9, 5, 18, 0.95);
+  background-color: rgba(9, 5, 18, 0.95);
   border-top: 1px solid rgba(255, 180, 255, 0.18);
 }
 
