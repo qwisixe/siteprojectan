@@ -13,15 +13,43 @@ html, body {
 body {
   position: relative;
   min-height: 100vh;
-  /* единственный фон сайта — твой */
+  /* единственный фон сайта — твой pinimg */
   background: url("https://i.pinimg.com/1200x/e8/5a/cf/e85acf0cd13bfb5e9d2b0bef546fa967.jpg") no-repeat center center fixed;
   background-size: cover;
   color: #f5f5ff;
   font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
 }
 
-/* УБРАНО: .shinoa-bg как второй фон, чтобы не было наложения */
-/* Если в HTML ещё есть <div class="shinoa-bg">..., можно удалить его из HTML */
+/* Анимированный слой с Шиноа поверх фоновой картинки */
+.shinoa-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.18;
+  animation: float-bg 16s ease-in-out infinite;
+}
+
+.shinoa-bg img {
+  max-width: 95vw;
+  max-height: 95vh;
+  filter: drop-shadow(0 0 24px rgba(255, 120, 255, 0.5));
+}
+
+@keyframes float-bg {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-18px) scale(1.03);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
 
 /* Шапка */
 .site-header {
