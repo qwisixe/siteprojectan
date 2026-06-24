@@ -6,12 +6,13 @@
     <title>Шиноа Хиираги | Последний Серафим</title>
     <style>
         :root {
-            --bg-dark: #1a0b2e;
-            --bg-card: #2d124d;
+            --bg-dark: #120621;
+            --bg-card: rgba(45, 18, 77, 0.72);
             --primary-pink: #ff66b2;
             --primary-purple: #9b5de5;
             --text-light: #f3e8ff;
             --accent-violet: #4a154b;
+            --glow-pink: rgba(255, 102, 178, 0.6);
         }
 
         * {
@@ -22,102 +23,221 @@
         }
 
         body {
-            background-color: var(--bg-dark);
+            /* Фоновое изображение Шиноа Хиираги с эффектом фиксации и градиентным наложением для глубины */
+            background-image: linear-gradient(135deg, rgba(18, 6, 33, 0.93), rgba(45, 18, 77, 0.88)), url('http://googleusercontent.com/image_collection/image_retrieval/1938978088850187153_0');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center top;
             color: var(--text-light);
             line-height: 1.6;
-            padding-bottom: 40px;
+            padding-bottom: 60px;
         }
 
         header {
-            background: linear-gradient(135deg, var(--accent-violet), var(--bg-card));
-            padding: 60px 20px;
+            background: linear-gradient(135deg, rgba(74, 21, 75, 0.8), rgba(45, 18, 77, 0.8));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 80px 20px;
             text-align: center;
             border-bottom: 4px solid var(--primary-pink);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            margin-bottom: 40px;
         }
 
         header h1 {
-            font-size: 3rem;
+            font-size: 3.8rem;
             color: var(--primary-pink);
-            text-shadow: 0 0 10px rgba(255, 102, 178, 0.6);
-            margin-bottom: 10px;
+            text-shadow: 0 0 20px var(--glow-pink);
+            margin-bottom: 15px;
+            letter-spacing: 2px;
         }
 
         header p {
-            font-size: 1.2rem;
-            color: var(--primary-purple);
+            font-size: 1.3rem;
+            color: #d2b7ff;
             font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
         }
 
         .container {
-            max-width: 1000px;
-            margin: 40px auto;
+            max-width: 1100px;
+            margin: 0 auto;
             padding: 0 20px;
         }
 
         section {
             background-color: var(--bg-card);
-            border-radius: 12px;
-            padding: 30px;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-radius: 16px;
+            padding: 40px;
             margin-bottom: 40px;
-            border-left: 5px solid var(--primary-purple);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255, 102, 178, 0.15);
+            border-left: 6px solid var(--primary-purple);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(155, 93, 229, 0.3), inset 0 1px 2px rgba(255,255,255,0.15);
+            border-color: rgba(255, 102, 178, 0.35);
         }
 
         h2 {
             color: var(--primary-pink);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-            border-bottom: 1px solid rgba(255, 102, 178, 0.2);
-            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 2rem;
+            border-bottom: 2px solid rgba(255, 102, 178, 0.2);
+            padding-bottom: 12px;
+            text-shadow: 0 0 12px rgba(255, 102, 178, 0.4);
         }
 
         p {
-            margin-bottom: 15px;
-            font-size: 1.05rem;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
             color: #e2d5f3;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
         }
 
+        /* Досье и Характеристики персонажа */
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+
+        .profile-info p {
+            background: rgba(26, 11, 46, 0.4);
+            padding: 12px 18px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(155, 93, 229, 0.15);
+        }
+
+        .stat-bar {
+            margin-bottom: 18px;
+        }
+
+        .stat-name {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 6px;
+            color: #e2d5f3;
+            font-weight: 500;
+        }
+
+        .bar {
+            background: rgba(26, 11, 46, 0.6);
+            border-radius: 10px;
+            height: 14px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 102, 178, 0.2);
+        }
+
+        .fill {
+            background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
+            height: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 12px var(--primary-pink);
+        }
+
+        /* Блок цитат */
+        .quotes-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .character-quote {
+            background: rgba(26, 11, 46, 0.5);
+            border-left: 4px solid var(--primary-pink);
+            padding: 20px;
+            font-style: italic;
+            border-radius: 0 12px 12px 0;
+            color: #e6dcff;
+            font-size: 1.1rem;
+            box-shadow: inset 5px 0 15px rgba(0,0,0,0.2);
+        }
+
+        /* Объемная Галерея */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 25px;
         }
 
-        .img-placeholder {
-            background: linear-gradient(45deg, #4a154b, #2d124d);
-            border: 2px dashed var(--primary-pink);
-            border-radius: 8px;
-            height: 350px;
+        .gallery-card {
+            background: rgba(26, 11, 46, 0.6);
+            border: 1px solid rgba(255, 102, 178, 0.25);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 20px;
-            color: var(--primary-purple);
-            font-weight: bold;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex-direction: column;
         }
 
-        .img-placeholder:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(255, 102, 178, 0.4);
-            border-style: solid;
-            color: var(--primary-pink);
+        .gallery-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 22px 45px rgba(255, 102, 178, 0.4);
+            border-color: var(--primary-pink);
+        }
+
+        .gallery-img-wrapper {
+            width: 100%;
+            height: 360px;
+            overflow: hidden;
+            position: relative;
+            background: #120621;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .gallery-desc {
+            padding: 18px;
+            text-align: center;
+            background: linear-gradient(to top, rgba(18, 6, 33, 0.95), rgba(45, 18, 77, 0.8));
+            border-top: 1px solid rgba(255, 102, 178, 0.15);
+            font-size: 1rem;
+            color: var(--text-light);
+            font-weight: 500;
         }
 
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 35px 20px;
             color: var(--primary-purple);
-            font-size: 0.9rem;
+            font-size: 1rem;
+            margin-top: 50px;
+            background: rgba(18, 6, 33, 0.85);
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(155, 93, 229, 0.25);
         }
 
-        /* Выделение важных мыслей */
         .highlight {
             color: var(--primary-pink);
             font-weight: bold;
+            text-shadow: 0 0 8px rgba(255, 102, 178, 0.4);
         }
     </style>
 </head>
@@ -129,6 +249,39 @@
     </header>
 
     <div class="container">
+
+        <section>
+            <div class="profile-container">
+                <div class="profile-info">
+                    <h2>Личное дело бойца</h2>
+                    <p><strong>Имя:</strong> Шиноа Хиираги (柊 シноア)</p>
+                    <p><strong>Рост / Вес:</strong> 150 см / 43 кг</p>
+                    <p><strong>Организация:</strong> Императорская армия демонов</p>
+                    <p><strong>Подразделение:</strong> Отряд Шиноа (Лидер)</p>
+                    <p><strong>Оружие:</strong> Четырехлистная коса смерти</p>
+                    <p><strong>Ранг:</strong> Сержант</p>
+                </div>
+                <div class="stats-container">
+                    <h2>Боевые параметры</h2>
+                    <div class="stat-bar">
+                        <span class="stat-name">Тактическое мышление:</span>
+                        <div class="bar"><div class="fill" style="width: 92%;"></div></div>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-name">Владение демоническим оружием:</span>
+                        <div class="bar"><div class="fill" style="width: 88%;"></div></div>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-name">Уровень сарказма и иронии:</span>
+                        <div class="bar"><div class="fill" style="width: 100%;"></div></div>
+                    </div>
+                    <div class="stat-bar">
+                        <span class="stat-name">Верность товарищам:</span>
+                        <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <section>
             <h2>История манги «Последний Серафим»</h2>
@@ -144,20 +297,41 @@
         </section>
 
         <section>
-            <h2>Галерея (Кадры из манги)</h2>
-            <p><em>Замени текст ниже на реальные ссылки на картинки (вставив их в тег img вместо плейсхолдеров), когда скачаешь любимые сканы!</em></p>
+            <h2>Фирменные цитаты Шиноа</h2>
+            <div class="quotes-container">
+                <blockquote class="character-quote">
+                    «В мире, где полно настоящих чудовищ, сложнее всего оставаться человеком. Или хотя бы искусно притворяться им с ухмылкой на лице.»
+                </blockquote>
+                <blockquote class="character-quote">
+                    «Юи-сан, если вы продолжите так безрассудно и глупо рваться в бой в одиночку, мне придется лично вас связать. И поверьте, это будет совсем не романтично.»
+                </blockquote>
+            </div>
+        </section>
+
+        <section>
+            <h2>Галерея (Кадры и моменты)</h2>
+            <p><em>Яркие и запоминающиеся моменты с Шиноа Хиираги из оригинальных медиа-источников:</em></p>
             
             <div class="gallery">
-                <div class="img-placeholder">
-                    [ Место для арта: Шиноа призывает Шикама Доджи ]
+                <div class="gallery-card">
+                    <div class="gallery-img-wrapper">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/16468912919294444185_0" alt="Шиноа призывает Шикама Доджи">
+                    </div>
+                    <div class="gallery-desc">Шиноа призывает оружие и демона Шикама Доджи</div>
                 </div>
                 
-                <div class="img-placeholder">
-                    [ Место для кадра: Легендарная ухмылка Шиноа ]
+                <div class="gallery-card">
+                    <div class="gallery-img-wrapper">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/15597419890641768315_0" alt="Легендарная ухмылка Шиноа">
+                    </div>
+                    <div class="gallery-desc">Та самая легендарная и хитрая ухмылка Шиноа</div>
                 </div>
                 
-                <div class="img-placeholder">
-                    [ Место для страницы: Отряд Шиноа в сборе ]
+                <div class="gallery-card">
+                    <div class="gallery-img-wrapper">
+                        <img src="http://googleusercontent.com/image_collection/image_retrieval/1380893553924667878_0" alt="Отряд Шиноа в сборе">
+                    </div>
+                    <div class="gallery-desc">Верный и непобедимый отряд Шиноа в полном составе</div>
                 </div>
             </div>
         </section>
