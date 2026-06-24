@@ -1,346 +1,211 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Шиноа Хиираги | Последний Серафим</title>
-    <style>
-        :root {
-            --bg-dark: #120621;
-            --bg-card: rgba(45, 18, 77, 0.72);
-            --primary-pink: #ff66b2;
-            --primary-purple: #9b5de5;
-            --text-light: #f3e8ff;
-            --accent-violet: #4a154b;
-            --glow-pink: rgba(255, 102, 178, 0.6);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            /* Фоновое изображение Шиноа Хиираги с эффектом фиксации и градиентным наложением для глубины */
-            background-image: linear-gradient(135deg, rgba(18, 6, 33, 0.93), rgba(45, 18, 77, 0.88)), url('https://i.pinimg.com/originals/db/60/7d/db607d722bf0a618d73b063806be44d1.jpg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center top;
-            color: var(--text-light);
-            line-height: 1.6;
-            padding-bottom: 60px;
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(74, 21, 75, 0.8), rgba(45, 18, 77, 0.8));
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 80px 20px;
-            text-align: center;
-            border-bottom: 4px solid var(--primary-pink);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-            margin-bottom: 40px;
-        }
-
-        header h1 {
-            font-size: 3.8rem;
-            color: var(--primary-pink);
-            text-shadow: 0 0 20px var(--glow-pink);
-            margin-bottom: 15px;
-            letter-spacing: 2px;
-        }
-
-        header p {
-            font-size: 1.3rem;
-            color: #d2b7ff;
-            font-style: italic;
-            max-width: 800px;
-            margin: 0 auto;
-            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            background-color: var(--bg-card);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 40px;
-            border: 1px solid rgba(255, 102, 178, 0.15);
-            border-left: 6px solid var(--primary-purple);
-            box-shadow: 0 20px 45px rgba(0,0,0,0.5), inset 0 1px 2px rgba(255,255,255,0.1);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-        }
-
-        section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 25px 50px rgba(155, 93, 229, 0.3), inset 0 1px 2px rgba(255,255,255,0.15);
-            border-color: rgba(255, 102, 178, 0.35);
-        }
-
-        h2 {
-            color: var(--primary-pink);
-            margin-bottom: 25px;
-            font-size: 2rem;
-            border-bottom: 2px solid rgba(255, 102, 178, 0.2);
-            padding-bottom: 12px;
-            text-shadow: 0 0 12px rgba(255, 102, 178, 0.4);
-        }
-
-        p {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-            color: #e2d5f3;
-            text-shadow: 0 1px 2px rgba(0,0,0,0.4);
-        }
-
-        /* Досье и Характеристики персонажа */
-        .profile-container {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
-        }
-
-        @media (max-width: 768px) {
-            .profile-container {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-        }
-
-        .profile-info p {
-            background: rgba(26, 11, 46, 0.4);
-            padding: 12px 18px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            border: 1px solid rgba(155, 93, 229, 0.15);
-        }
-
-        .stat-bar {
-            margin-bottom: 18px;
-        }
-
-        .stat-name {
-            display: block;
-            font-size: 1rem;
-            margin-bottom: 6px;
-            color: #e2d5f3;
-            font-weight: 500;
-        }
-
-        .bar {
-            background: rgba(26, 11, 46, 0.6);
-            border-radius: 10px;
-            height: 14px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 102, 178, 0.2);
-        }
-
-        .fill {
-            background: linear-gradient(90deg, var(--primary-purple), var(--primary-pink));
-            height: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 12px var(--primary-pink);
-        }
-
-        /* Блок цитат */
-        .quotes-container {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .character-quote {
-            background: rgba(26, 11, 46, 0.5);
-            border-left: 4px solid var(--primary-pink);
-            padding: 20px;
-            font-style: italic;
-            border-radius: 0 12px 12px 0;
-            color: #e6dcff;
-            font-size: 1.1rem;
-            box-shadow: inset 5px 0 15px rgba(0,0,0,0.2);
-        }
-
-        /* Объемная Галерея */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 25px;
-        }
-
-        .gallery-card {
-            background: rgba(26, 11, 46, 0.6);
-            border: 1px solid rgba(255, 102, 178, 0.25);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 22px 45px rgba(255, 102, 178, 0.4);
-            border-color: var(--primary-pink);
-        }
-
-        .gallery-img-wrapper {
-            width: 100%;
-            height: 360px;
-            overflow: hidden;
-            position: relative;
-            background: #120621;
-        }
-
-        .gallery-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .gallery-card:hover img {
-            transform: scale(1.08);
-        }
-
-        .gallery-desc {
-            padding: 18px;
-            text-align: center;
-            background: linear-gradient(to top, rgba(18, 6, 33, 0.95), rgba(45, 18, 77, 0.8));
-            border-top: 1px solid rgba(255, 102, 178, 0.15);
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 500;
-        }
-
-        footer {
-            text-align: center;
-            padding: 35px 20px;
-            color: var(--primary-purple);
-            font-size: 1rem;
-            margin-top: 50px;
-            background: rgba(18, 6, 33, 0.85);
-            backdrop-filter: blur(8px);
-            border-top: 1px solid rgba(155, 93, 229, 0.25);
-        }
-
-        .highlight {
-            color: var(--primary-pink);
-            font-weight: bold;
-            text-shadow: 0 0 8px rgba(255, 102, 178, 0.4);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Шиноа Хиираги — Owari no Seraph</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+  <!-- Анимированный фон с Шиноа -->
+  <div class="shinoa-bg">
+    <!-- Можешь поменять картинку на любую из трёх, если хочешь -->
+    <img src="https://images6.alphacoders.com/598/598796.png" alt="Отряд Шиноа на фоне">
+  </div>
+
+  <header class="site-header">
+    <div class="logo-title">
+      <div class="logo-circle">
+        <span>柊</span>
+      </div>
+      <div>
         <h1>Шиноа Хиираги</h1>
-        <p>«В мире, разрушенном вампирами, сарказм — её главное оружие (после косы, конечно)»</p>
-    </header>
-
-    <div class="container">
-
-        <section>
-            <div class="profile-container">
-                <div class="profile-info">
-                    <h2>Личное дело бойца</h2>
-                    <p><strong>Имя:</strong> Шиноа Хиираги (柊 シノア)</p>
-                    <p><strong>Рост / Вес:</strong> 150 см / 43 кг</p>
-                    <p><strong>Организация:</strong> Императорская армия demons</p>
-                    <p><strong>Подразделение:</strong> Отряд Шиноа (Лидер)</p>
-                    <p><strong>Оружие:</strong> Четырехлистная коса смерти</p>
-                    <p><strong>Ранг:</strong> Сержант</p>
-                </div>
-                <div class="stats-container">
-                    <h2>Боевые параметры</h2>
-                    <div class="stat-bar">
-                        <span class="stat-name">Тактическое мышление:</span>
-                        <div class="bar"><div class="fill" style="width: 92%;"></div></div>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Владение демоническим оружием:</span>
-                        <div class="bar"><div class="fill" style="width: 88%;"></div></div>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Уровень сарказма и иронии:</span>
-                        <div class="bar"><div class="fill" style="width: 100%;"></div></div>
-                    </div>
-                    <div class="stat-bar">
-                        <span class="stat-name">Верность товарищам:</span>
-                        <div class="bar"><div class="fill" style="width: 95%;"></div></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>История манги «Последний Серафим»</h2>
-            <p><strong>Owari no Seraph (Seraph of the End)</strong> — это постапокалиптическая темная фэнтези-манга, созданная Такая Кагами и проиллюстрированная Ямато Ямамото. История берет свое начало в 2012 году, когда таинственный вирус уничтожает практически всё человечество старше 13 лет. В этот же момент из подземелий поднимаются вампиры, подчиняя себе выживших детей.</p>
-            <p>Сюжет крутится вокруг <span class="highlight">Юичиро Хякуя</span>, который мечтает истребить всех вампиров, чтобы отомстить за свою названную семью. Манга быстро завоевала популярность по всему миру благодаря крутому экшену, интригующему лору с демоническим оружием и сложным моральным выборам персонажей.</p>
-        </section>
-
-        <section>
-            <h2>История и личность Шиноа Хиираги</h2>
-            <p>Шиноа — член могущественного и жестокого клана Хиираги, который фактически правит Императорской армией демонов. Несмотря на высокое происхождение, Шиноа предпочла остаться в звании сержанта. Она росла в тени своей гениальной старшей сестры Махиру, что сильно повлияло на её характер.</p>
-            <p>Из-за семейных тайн и постоянного давления Шиноа научилась скрывать свои истинные эмоции под маской абсолютного безразличия, иронии и <span class="highlight">фирменного сарказма</span>. Она любит поддразнивать окружающих (особенно Юичиро), но за этим фасадом скрывается преданный лидер, готовый пойти наперекор всему клану ради защиты своих друзей.</p>
-            <p>В бою Шиноа невероятно опасна: она управляет запечатанным в косу демоном по имени <span class="highlight">Шикама Доджи</span>, искусно ведя бой как на средней, так и на ближней дистанции.</p>
-        </section>
-
-        <section>
-            <h2>Фирменные цитаты Шиноа</h2>
-            <div class="quotes-container">
-                <blockquote class="character-quote">
-                    «В мире, где полно настоящих чудовищ, сложнее всего оставаться человеком. Или хотя бы искусно притворяться им с ухмылкой на лице.»
-                </blockquote>
-                <blockquote class="character-quote">
-                    «Юи-сан, если вы продолжите так безрассудно и глупо рваться в бой в одиночку, мне придется лично вас связать. И поверьте, это будет совсем не романтично.»
-                </blockquote>
-            </div>
-        </section>
-
-        <section>
-            <h2>Галерея (Кадры и моменты)</h2>
-            <p><em>Яркие и запоминающиеся моменты с Шиноа Хиираги из оригинальных медиа-источников:</em></p>
-            
-            <div class="gallery">
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://i.pinimg.com/originals/c5/be/93/c5be9348d21279581fa29ffbb32d8091.jpg" alt="Шиноа призывает Шикама Доджи">
-                    </div>
-                    <div class="gallery-desc">Шиноа призывает оружие и демона Шикама Доджи</div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://i.pinimg.com/originals/cf/22/bc/cf22bc30a6ba6c41b8971f654aa0bf61.jpg" alt="Легендарная ухмылка Шиноа">
-                    </div>
-                    <div class="gallery-desc">Та самая легендарная и хитрая ухмылка Шиноа</div>
-                </div>
-                
-                <div class="gallery-card">
-                    <div class="gallery-img-wrapper">
-                        <img src="https://i.pinimg.com/originals/90/13/26/90132646b9dfb2ef7892fc6df0587db3.jpg" alt="Отряд Шиноа в сборе">
-                    </div>
-                    <div class="gallery-desc">Верный и непобедимый отряд Шиноа в полном составе</div>
-                </div>
-            </div>
-        </section>
-
+        <p class="subtitle">Сержант Императорской армии демонов • Лидер отряда Шиноа</p>
+      </div>
     </div>
+    <nav class="main-nav">
+      <a href="#bio">Био</a>
+      <a href="#facts">Факты</a>
+      <a href="#weapon">Оружие</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#quotes">Цитаты</a>
+      <a href="#media">Медиа</a>
+    </nav>
+  </header>
 
-    <footer>
-        <p>Фан-сайт сделан с любовью к Owari no Seraph | 2026</p>
-    </footer>
+  <main class="content">
+
+    <!-- Блок: краткий герой -->
+    <section id="hero" class="section-card hero-card">
+      <div class="hero-text">
+        <h2>Оwari no Seraph • Shinoa Hiiragi</h2>
+        <p>
+          Шиноа Хиираги — одна из ключевых героинь <strong>Owari no Seraph</strong>,
+          саркастичная и умная лидер отряда, происходящая из могущественного клана Хиираги.
+        </p>
+        <p>
+          За её иронией и вечной ухмылкой скрывается тяжёлое прошлое, семейные тайны и
+          готовность идти против системы ради своих товарищей.
+        </p>
+        <div class="hero-tags">
+          <span>Сержант</span>
+          <span>Императорская армия демонов</span>
+          <span>Отряд Шиноа</span>
+          <span>Демоническое оружие</span>
+        </div>
+      </div>
+      <div class="hero-portrait">
+        <!-- Ухмылка -->
+        <img src="https://cdn.rafled.com/anime-icons/images/9c85f1b44ed1bf6eb4a73b911df081a2a7d081951f884e979ad31bf6d34b87f9.jpg"
+             alt="Шиноа Хиираги с фирменной ухмылкой">
+      </div>
+    </section>
+
+    <!-- Биография -->
+    <section id="bio" class="section-card">
+      <h2>Биография</h2>
+      <div class="two-columns">
+        <div>
+          <p><strong>Имя:</strong> Шиноа Хиираги (柊 シノア)</p>
+          <p><strong>Рост / Вес:</strong> 150 см / 43 кг</p>
+          <p><strong>Организация:</strong> Императорская армия демонов</p>
+          <p><strong>Подразделение:</strong> Отряд Шиноа (лидер)</p>
+          <p><strong>Ранг:</strong> Сержант</p>
+        </div>
+        <div>
+          <p>
+            <strong>Owari no Seraph (Seraph of the End)</strong> — это постапокалиптическая
+            тёмная фэнтези, где человечество было почти уничтожено таинственным вирусом,
+            а на поверхность вышли вампиры, подчинившие выживших детей.
+          </p>
+          <p>
+            На фоне борьбы Юичиро Хякуя против вампиров, Шиноа появляется как
+            наблюдатель и руководитель, который сначала кажется безразличной,
+            но со временем раскрывается как преданный лидер.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Характер и факты -->
+    <section id="facts" class="section-card">
+      <h2>Характер и факты</h2>
+      <div class="two-columns">
+        <ul class="styled-list">
+          <li>Любит поддразнивать окружающих, особенно Юичиро.</li>
+          <li>Скрывает свои истинные эмоции за сарказмом и спокойной маской.</li>
+          <li>Росла в тени своей старшей сестры Махиру, что сильно повлияло на её характер.</li>
+          <li>Несмотря на происхождение, предпочла остаться в звании сержанта, а не продвигаться по системе.</li>
+        </ul>
+        <ul class="styled-list">
+          <li>Чётко чувствует грань между долгом перед армией и заботой о команде.</li>
+          <li>Готова идти против клана Хиираги ради защиты своих товарищей.</li>
+          <li>Нередко делает вид, что ей всё равно, хотя на деле тщательно продумывает каждый шаг.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Оружие -->
+    <section id="weapon" class="section-card">
+      <h2>Четырёхлистная коса смерти</h2>
+      <div class="two-columns">
+        <div>
+          <p>
+            В бою Шиноа невероятно опасна: она использует <strong>четырёхлистную косу смерти</strong>,
+            демоническое оружие, в котором заключён демон по имени Шикама Доджи.
+          </p>
+          <p>
+            Она одинаково уверенно чувствует себя как на средней, так и на ближней дистанции,
+            играя на скорости, точности и контроле поля боя.
+          </p>
+        </div>
+        <div class="weapon-image">
+          <!-- Картинка, где она достаёт оружие -->
+          <img src="https://i.pinimg.com/736x/c9/e4/1e/c9e41e804045b01f1be884729ae08da0.jpg"
+               alt="Шиноа Хиираги достаёт косу смерти">
+        </div>
+      </div>
+    </section>
+
+    <!-- Галерея -->
+    <section id="gallery" class="section-card">
+      <h2>Галерея Шиноа и отряда</h2>
+      <p class="section-desc">
+        Несколько моментов с Шиноа Хиираги и её отрядом: фирменная ухмылка, боевые сцены и совместные кадры.
+      </p>
+      <div class="gallery-grid">
+        <!-- Ухмылка -->
+        <figure class="gallery-item">
+          <img src="https://cdn.rafled.com/anime-icons/images/9c85f1b44ed1bf6eb4a73b911df081a2a7d081951f884e979ad31bf6d34b87f9.jpg"
+               alt="Шиноа с ухмылкой">
+          <figcaption>Фирменная ухмылка Шиноа</figcaption>
+        </figure>
+
+        <!-- Полный отряд -->
+        <figure class="gallery-item">
+          <img src="https://images6.alphacoders.com/598/598796.png"
+               alt="Отряд Шиноа в полном составе">
+          <figcaption>Отряд Шиноа в сборе</figcaption>
+        </figure>
+
+        <!-- Достаёт оружие -->
+        <figure class="gallery-item">
+          <img src="https://i.pinimg.com/736x/c9/e4/1e/c9e41e804045b01f1be884729ae08da0.jpg"
+               alt="Шиноа достаёт оружие">
+          <figcaption>Шиноа с косой смерти</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Цитаты -->
+    <section id="quotes" class="section-card">
+      <h2>Цитаты Шиноа</h2>
+      <div class="quotes-block">
+        <blockquote>
+          «В мире, где полно настоящих чудовищ, сложнее всего оставаться человеком.
+          Или хотя бы искусно притворяться им с ухмылкой на лице.»
+        </blockquote>
+        <blockquote>
+          «Юи-сан, если вы продолжите так безрассудно и глупо рваться в бой в одиночку,
+          мне придётся лично вас связать. И поверьте, это будет совсем не романтично.»
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Медиа / лор -->
+    <section id="media" class="section-card">
+      <h2>Owari no Seraph — мир и медиа</h2>
+      <p>
+        Манга и аниме <strong>Owari no Seraph</strong> быстро завоевали популярность благодаря
+        динамичным сражениям, демоническому оружию и сложным моральным выборам персонажей.
+      </p>
+      <p>
+        Шиноа, Юичиро и остальные герои показывают, как тяжело оставаться собой
+        в мире, где люди и монстры постоянно меняются местами.
+      </p>
+      <div class="media-grid">
+        <div class="media-card">
+          <h3>Манга</h3>
+          <p>Создана Такая Кагами, иллюстрации Ямато Ямамото.</p>
+        </div>
+        <div class="media-card">
+          <h3>Аниме</h3>
+          <p>Адаптация делит историю на две части, раскрывая конфликт людей, вампиров и демонов.</p>
+        </div>
+        <div class="media-card">
+          <h3>Отряд Шиноа</h3>
+          <p>Специализированный боевой отряд, куда входит Юичиро и другие ключевые персонажи.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>Фан-сайт, посвящённый Шиноа Хиираги из Owari no Seraph.</p>
+    <p>Создан при помощи HTML, CSS и любви к аниме.</p>
+  </footer>
 
 </body>
 </html>
